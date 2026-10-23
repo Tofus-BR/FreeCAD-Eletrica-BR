@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "ms-python.python",
+    "charliermarsh.ruff",
+    "tamasfe.even-better-toml",
+    "anthropic.claude-code",
+    "streetsidesoftware.code-spell-checker-portuguese-brazilian",
+    "github.vscode-github-actions",
+    "eamodio.gitlens"
+  ]
+}
