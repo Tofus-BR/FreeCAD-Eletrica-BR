@@ -1,0 +1,29 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  qualidade:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          python-version: "3.11"
+      - name: Dependências
+        run: uv sync --locked
+      - name: Ruff
+        run: |
+          uv run ruff check .
+          uv run ruff format --check .
+      - name: Réguas do projeto
+        run: |
+          python3 -I .claude/skills/codigo-enxuto/scripts/sinais.py $(git ls-files 'eletrica_br/*.py' 'testes/*.py')
+          python3 -I .claude/skills/codigo-enxuto/scripts/duplicacao.py --censo eletrica_br
+      - name: Testes do núcleo
+        run: uv run pytest
