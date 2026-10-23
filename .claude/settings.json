@@ -1,12 +1,24 @@
 {
   "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 -I \"$CLAUDE_PROJECT_DIR/.claude/skills/rotina/scripts/inicio_sessao.py\"",
+            "timeout": 15
+          }
+        ]
+      }
+    ],
     "PostToolUse": [
       {
         "matcher": "Edit|Write|MultiEdit",
         "hooks": [
           {
             "type": "command",
-            "command": "python3 -I \"$CLAUDE_PROJECT_DIR/.claude/skills/codigo-enxuto/scripts/ao_editar.py\""
+            "command": "python3 -I \"$CLAUDE_PROJECT_DIR/.claude/skills/codigo-enxuto/scripts/ao_editar.py\"",
+            "timeout": 30
           }
         ]
       }

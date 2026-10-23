@@ -1,28 +1,63 @@
-# Histórico de desenvolvimento
+# Histórico de desenvolvimento — Elétrica BR
+
+Documento vivo. Ordem: checkpoint → revisão geral → decisões → lições → sessões (mais recente no
+topo). Atualizado ao fim de cada lote (skill `rotina`, fase 5). O plano de etapas mora em
+`docs/PLANO_DE_DESENVOLVIMENTO.md`; este arquivo diz onde estamos e o que aprendemos.
 
 ## ▶ RETOMAR AQUI
 
-22/10/2026: plano (v1.1), CLAUDE.md, skills (`rotina`, `codigo-enxuto`, `revisao`, `decidir`,
-`calculo-normativo`), subagente `revisor-independente`, hook de edição e `pyproject.toml` criados.
-Réguas `sinais.py`, `duplicacao.py` e `ao_editar.py` conferidas com casos plantados (defeito → saída
-1/2; código limpo → 0). Ainda sem código do núcleo e sem repositório no GitHub.
+**Etapa atual:** 0.1 — núcleo de cálculo, quadro de cargas e memorial.
+**Branch:** `etapa-0.1/previsao-de-cargas`.
 
-23/10/2026: repositório público `Tofus-BR/FreeCAD-Eletrica-BR` criado com LGPL-3.0 (COPYING e
-COPYING.LESSER), README, CONTRIBUTING com termo de cessão, THIRD_PARTY, modelos de issue e PR, CI no
-GitHub Actions (Ruff, réguas, pytest em Python 3.11 via uv) e skill nova `freecad-addon`. Ambiente
-local com `uv` (Python 3.11.16, igual ao do FreeCAD): Ruff limpo, pytest 2/2, freecadcmd 1/1.
+### Por onde continuar
 
-Próximo: etapa 0.1, começando pela previsão de cargas (skill `calculo-normativo`). O
-`package.xml` entra quando existir a primeira bancada (`InitGui.py`).
+1. Previsão de cargas (iluminação e TUG por cômodo) em `eletrica_br/nucleo/previsao.py`.
+2. Confirmar no texto da NBR 5410:2004 os dois critérios marcados como PENDENTE em `previsao.py`
+   (cômodo ≤ 2,25 m² e regra de mais de 6 tomadas no conjunto de áreas molhadas).
+3. Depois: TUE e cargas específicas, divisão em circuitos, demanda.
+
+### Perguntas para o dono
+
+- Tem acesso ao texto da NBR 5410:2004 para confirmar os itens PENDENTE?
+
+## 🔎 Revisão geral — o que tem de continuar valendo
+
+| Comportamento | Como medir | Prova esperada |
+|---|---|---|
+| Núcleo não depende do FreeCAD | `uv run pytest testes/test_pacote.py` | 2/2 verde |
+| Pacote importa dentro do FreeCAD | `freecadcmd testes/freecad/rodar.py` | 1/1 ok |
+| Réguas pegam defeito plantado | autoteste do `sinais.py` e `duplicacao.py` | saída ≠ 2 |
+| Previsão de cargas bate com exemplos publicados | `uv run pytest testes/nucleo` | casos de referência verdes |
 
 ## Decisões
 
 - 22/10/2026 · **Projeto 100% livre** (LGPL-3.0) com CLA · opções: livre, misto, pago · decisão:
-  livre, custo quase zero, retorno indireto · evidência: custos levantados (GitHub, Crowdin e Addon
-  Manager gratuitos) · reavaliar se surgir módulo novo voltado a empresas.
+  livre, custo quase zero, retorno indireto · evidência: GitHub, Crowdin e Addon Manager gratuitos ·
+  reavaliar se surgir módulo novo voltado a empresas.
 - 22/10/2026 · **Tabelas da norma fora do código** · cálculo próprio (Neher-McGrath) + tabela do
   usuário · evidência: TRF-3 2014 a favor do uso, ABNT discorda · reavaliar com parecer jurídico.
+- 23/10/2026 · **Ambiente com uv e Python 3.11** · opções: Python do sistema (3.14), Python do
+  FreeCAD, uv · decisão: uv com 3.11, igual ao FreeCAD 1.1 · evidência: pytest ausente no FreeCAD e
+  3.14 diferente do alvo · reavaliar quando o FreeCAD mudar de Python.
 
 ## Lições
 
-(vazio)
+- 23/10/2026 · O Ruff do projeto pegou 5 problemas no primeiro arquivo de teste (caminhos com
+  `os.path`, import fora do topo). Como evitar: rodar `uv run ruff check .` antes de dizer pronto;
+  o hook já faz isso a cada edição dentro do Claude Code.
+
+## Sessões
+
+### 23/10/2026 — Ambiente, GitHub e início da etapa 0.1
+
+- Repositório público `Tofus-BR/FreeCAD-Eletrica-BR` com LGPL-3.0, README, CONTRIBUTING com termo
+  de cessão, THIRD_PARTY, modelos de issue e PR e CI (Ruff, réguas, pytest em 3.11). CI verde.
+- Ambiente local com uv (Python 3.11.16), extensões do Cursor para Python/Ruff/TOML e configuração
+  do editor só deste projeto (`.vscode/`). Gemini desligado aqui.
+- Skill nova `freecad-addon`; hook `SessionStart` que injeta este checkpoint; HISTORICO neste formato.
+
+### 22/10/2026 — Plano e regras de qualidade
+
+- Plano de desenvolvimento v1.1, CLAUDE.md, skills `rotina`, `codigo-enxuto`, `revisao`,
+  `decidir`, `calculo-normativo`, subagente `revisor-independente`, hook de edição e réguas
+  (`sinais.py`, `duplicacao.py`) conferidas com defeito plantado.

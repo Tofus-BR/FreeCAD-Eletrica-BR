@@ -20,6 +20,18 @@ projeto Python mantido por gente experiente. Refazer custa mais que fazer devaga
 | `Write` num caminho | `ls`/`git status` antes, para não sobrescrever |
 | afirmar "funciona / certo / pronto" | rode neste turno e diga com que caso conhecido conferiu |
 
+## Documentos vivos (sempre atualizados)
+
+- **Antes de qualquer tarefa**: leia o bloco `▶ RETOMAR AQUI` do `docs/HISTORICO.md` (o hook de
+  início já o traz) e a etapa atual no `docs/PLANO_DE_DESENVOLVIMENTO.md`. Trabalhe só na etapa atual.
+- **Ao fechar cada lote** (e antes de `/clear`): atualize o `docs/HISTORICO.md` — checkpoint
+  `▶ RETOMAR AQUI` com o estado MEDIDO e por onde continuar, nova sessão no topo de "Sessões",
+  decisão nova em "Decisões", lição em "Lições", linha na "Revisão geral" se surgiu comportamento
+  que precisa continuar valendo.
+- **Mudou escopo, etapa, prazo ou decisão de arquitetura?** Atualize o plano no mesmo commit.
+- **Recurso entregue?** Atualize o README.
+- Nenhum outro `.md` novo: o que for documentação de desenvolvimento entra no HISTORICO.
+
 ## Regras
 
 1. **Escopo.** Faça só o que a tarefa pede. Melhoria fora do pedido vira sugestão, não diff.
