@@ -119,6 +119,15 @@ AV:
 
 ---
 
+### 3.2 Biblioteca de consulta (app Livros do dono)
+
+A coleção **ELETRICA E CLP** do app Livros (740 arquivos) é a bibliografia do projeto: Creder,
+Cotrim, Niskier, Mamede Filho, manual de dimensionamento pela NBR 5410 (Lincoln Costa), memoriais,
+aterramento, proteção, comandos (WEG e apostilas), automação residencial, cabeamento e simbologia.
+A lista por assunto e a ferramenta de consulta (`livro.py`: baixa do iCloud, converte e busca) estão
+na skill `calculo-normativo`. Livro é fonte de método e de exemplo resolvido; norma só a vigente.
+Os livros e os textos convertidos ficam fora do repositório (direitos autorais).
+
 ## 4. Bibliotecas e recursos que vamos reaproveitar
 
 | Recurso | Licença | Uso |

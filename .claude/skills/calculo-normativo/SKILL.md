@@ -18,6 +18,32 @@ consegue refazer cada número com papel e a norma na mão.
 3. Qual o limite de aplicação? (baixa tensão até 1000 V CA, cobre/alumínio, PVC/EPR/XLPE,
    temperatura ambiente). Fora do limite: erro claro, nunca resultado silencioso.
 
+## 1.1 Biblioteca de referência (app Livros do dono, coleção ELETRICA E CLP, 740 arquivos)
+
+Antes de implementar um critério, confira-o em pelo menos um livro e cite página ou seção no teste:
+
+```bash
+L=.claude/skills/calculo-normativo/scripts/livro.py
+python3 -I $L listar "5410|creder|cotrim|mamede"         # acha o arquivo
+python3 -I $L buscar "<arquivo.pdf>" "queda de tens" 2     # baixa do iCloud, converte e busca
+```
+
+| Assunto | Livros (nome do arquivo no app) |
+|---|---|
+| Base de projeto residencial e predial | `Livro Instalacoes Eletricas - 16 ed. - Helio Creder.pdf`, `Instalações_Eletricas_5ª_Edição_Ademaro_A_M_B_Cotrim.pdf`, `instalacoes eletrica - 4 edicao - julio niskier.pdf` |
+| Dimensionamento de condutores e disjuntores (NBR 5410) | `666867388-Manual-do-dimensionamento-de-condutores-eletricos-e-disjuntores-de-acordo-com-a-NBR-5410-Prof-Eng-Lincoln-Costa.pdf` |
+| Industrial, curto-circuito, proteção | `Instalações_Elétricas_Industriais_João_Mamede_Filho_9ed_1.pdf`, `Protecao_de_sistemas_eletricos_de_potencia_2_ed_Mamede_Filho_2.pdf` |
+| Memorial e projeto predial | `609836052-Memorial-Descritivo-Instalacoes-Eletricas.pdf`, `Projeto de sistemas eletricos prediais.pdf` |
+| Aterramento e DR/DPS | `51409284-Esquemas-eletricos-de-aterramento.pdf`, `535206799-Dispositivos-de-protecao-eletrica.pdf` |
+| Comandos elétricos (etapa 0.5) | `633262135-Manual-comando-eletrico-weg-pdf.pdf`, `Comandos Elétricos Teoria e Atividades - Claiton Moro Franch.pdf` |
+| Automação e redes (etapa 0.7) | `331345614-eBook-Eletrico-Automacao-Residencial 1.pdf`, `682500048-ebook-AUTOMACAO-RESIDENCIAL-POR-WIFI.pdf`, `652529862-Guia-completo-cabeamento-de-rede-Pinheiro.pdf` |
+| Simbologia | `Simbologia elétrica.pdf`, `Simbologia eletrica PROF LUIZ FERNANDO GONCALVES.pdf` |
+
+Regras: livro é fonte de **método e de exemplo resolvido**; norma vale só a **versão vigente**
+(muitos livros citam normas antigas ou canceladas). O texto convertido fica em
+`~/FreeCAD-Eletrica-BR/referencias`, **fora do repositório**: livro nunca vai para o GitHub, nem
+trecho longo copiado para o código ou para os testes (cite seção e página).
+
 ## 2. Regras de código
 
 - **Núcleo em Python puro** (`eletrica_br/nucleo`), sem importar FreeCAD. Função pura: entra dado,

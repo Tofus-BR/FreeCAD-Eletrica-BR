@@ -60,6 +60,16 @@ cômodo. 48 testes verdes, 5 casos de referência publicados, 12/12 sabotagens p
 
 ## Sessões
 
+### 23/10/2026 — Biblioteca de livros ligada ao projeto
+
+- Ferramenta `livro.py` (skill `calculo-normativo`): lista a coleção ELETRICA E CLP do app Livros,
+  baixa do iCloud, converte com pdftotext para `~/FreeCAD-Eletrica-BR/referencias` e busca.
+  Testada com Creder 16ª ed. e o manual do Lincoln Costa.
+- `previsao.py` conferido com Creder 16ª ed., 3.3.2 e 3.3.3: regras de iluminação, quantidade e
+  potência das TUG batem. Creder acrescenta: subsolo, garagem, sótão e hall com pelo menos 1 TUG
+  (já cobertos por "demais cômodos" quando ≤ 6 m²) e 1 ponto acima de cada bancada ≥ 0,30 m
+  (posição, não muda a quantidade mínima).
+
 ### 23/10/2026 — Etapa 0.1: previsão de cargas
 
 - `previsao.py`: iluminação mínima pela área, quantidade mínima de TUG por tipo de cômodo e

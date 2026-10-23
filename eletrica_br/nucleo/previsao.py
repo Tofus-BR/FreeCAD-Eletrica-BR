@@ -1,6 +1,7 @@
 """Previsão mínima de iluminação e de tomadas de uso geral (TUG) por cômodo de habitação.
 
-Fonte: ABNT NBR 5410:2004, 9.5.2 (iluminação em 9.5.2.1, tomadas em 9.5.2.2).
+Fonte: ABNT NBR 5410:2004, 9.5.2 (iluminação em 9.5.2.1, tomadas em 9.5.2.2), conferida com
+H. Creder, Instalações Elétricas, 16ª ed., seções 3.3.2 e 3.3.3.
 A norma admite reduzir a potência das TUG quando o conjunto de áreas molhadas passa de seis
 pontos; aqui essa redução não é aplicada, o que fica sempre do lado da segurança.
 """
