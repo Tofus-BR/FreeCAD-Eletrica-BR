@@ -205,12 +205,20 @@ atualizações.
 - Orçamento com tabela de preços do usuário.
 - Prancha completa nas folhas ABNT com carimbo preenchido.
 
-### Etapa 0.4: quadro elétrico em 3D
+### Etapa 0.4: quadro elétrico (montagem 3D, unifilar e etiquetas)
 
-- Trilho DIN, disjuntores, DR, DPS, barramentos, canaletas e bornes paramétricos (nossos).
+Decisão do dono (23/10/2026): as duas frentes, dentro do mesmo addon, a partir dos mesmos dados
+do projeto. Nada é redigitado: circuito calculado vira disjuntor no unifilar, no 3D e na etiqueta.
+
+- Montagem 3D: caixa ou painel (catálogo editável de tamanhos), placa de montagem, trilho DIN,
+  disjuntores, DR, DPS, barramentos, pente, canaletas e bornes paramétricos (nossos).
 - Importação de STEP de fabricante com cadastro dos bornes por clique (sem editar CSV).
-- Layout do quadro gerado a partir do unifilar; verificação de espaço (módulos DIN).
-- Etiquetas e identificação de circuitos.
+- Layout gerado a partir do unifilar, com fases equilibradas no pente; verificação de espaço em
+  módulos DIN e espaço de reserva exigido pela NBR 5410.
+- Unifilar do quadro no TechDraw (o geral do projeto vem da etapa 0.3), na folha ABNT.
+- Etiquetas: identificação de cada dispositivo e circuito, legenda para a porta do quadro e
+  advertências; saída em PDF para impressora de etiquetas.
+- Lista de materiais do quadro, com código do fabricante quando o componente vier do catálogo.
 
 ### Etapa 0.5: comandos elétricos
 
