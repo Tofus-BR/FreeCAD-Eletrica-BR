@@ -51,6 +51,10 @@ cômodo. 48 testes verdes, 5 casos de referência publicados, 12/12 sabotagens p
   Confea/Crea com a ABNT (CREA-SP) e algumas licenciadas no próprio nome · decisão: PDFs em
   `~/FreeCAD-Eletrica-BR/normas`, fora do repo, bloqueados no `.gitignore`; código cita só número,
   edição e item · reavaliar se a ABNT liberar uso público.
+- 23/10/2026 · **Normas sem PDF: consulta no visualizador do convênio** · o portal Confea/ABNT só
+  deixa visualizar · decisão: não comprar agora; comprar só quando a norma entrar em projeto de
+  cliente; quando o código precisar de um item, o dono abre no visualizador e informa o item ou
+  manda print do trecho, sem guardar cópia · reavaliar ao fechar o primeiro projeto com cliente.
 
 - 23/10/2026 · **Redução de potência das TUG com mais de 6 pontos não aplicada** · opções: aplicar
   a redução permitida pela norma ou não · decisão: não aplicar no cálculo por cômodo (sempre do
