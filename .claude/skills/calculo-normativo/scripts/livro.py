@@ -20,12 +20,17 @@ from pathlib import Path
 ICLOUD = Path.home() / "Library/Mobile Documents/iCloud~com~apple~iBooks/Documents"
 INDICE = Path.home() / "PROJETO SELAGEM 2026/ESTUDO/REFERENCIA/BIBLIOTECA-LIVROS.csv"
 CACHE = Path.home() / "FreeCAD-Eletrica-BR/referencias"
+# O índice CSV é um retrato antigo; arquivos adicionados depois entram por esta lista local.
+EXTRA = CACHE / "colecao-extra.txt"
 COLECAO = "ELETRICA E CLP"
 
 
 def listar(filtro=""):
     with INDICE.open(encoding="utf-8-sig") as f:
-        nomes = [linha["arquivo"] for linha in csv.DictReader(f, delimiter=";") if linha["colecao_sugerida"] == COLECAO]
+        linhas = csv.DictReader(f, delimiter=";")
+        nomes = {linha["arquivo"] for linha in linhas if linha["colecao_sugerida"] == COLECAO}
+    if EXTRA.exists():
+        nomes |= set(filter(None, EXTRA.read_text(encoding="utf-8").splitlines()))
     padrao = re.compile(filtro, re.I)
     return sorted(n for n in nomes if padrao.search(n))
 
