@@ -43,6 +43,11 @@ cômodo. 48 testes verdes, 5 casos de referência publicados, 12/12 sabotagens p
   FreeCAD, uv · decisão: uv com 3.11, igual ao FreeCAD 1.1 · evidência: pytest ausente no FreeCAD e
   3.14 diferente do alvo · reavaliar quando o FreeCAD mudar de Python.
 
+- 23/10/2026 · **Normas ABNT só para consulta local** · o dono tem acesso pelo convênio
+  Confea/Crea com a ABNT (CREA-SP) e algumas licenciadas no próprio nome · decisão: PDFs em
+  `~/FreeCAD-Eletrica-BR/normas`, fora do repo, bloqueados no `.gitignore`; código cita só número,
+  edição e item · reavaliar se a ABNT liberar uso público.
+
 - 23/10/2026 · **Redução de potência das TUG com mais de 6 pontos não aplicada** · opções: aplicar
   a redução permitida pela norma ou não · decisão: não aplicar no cálculo por cômodo (sempre do
   lado da segurança) · evidência: a norma diz "admite-se" · reavaliar quando houver quadro de cargas

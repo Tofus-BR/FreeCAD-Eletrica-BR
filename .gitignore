@@ -6,3 +6,9 @@ __pycache__/
 .DS_Store
 *.FCBak
 .claude/settings.local.json
+
+# normas e livros: só consulta local, nunca no repositório
+*.pdf
+*.epub
+normas/
+referencias/

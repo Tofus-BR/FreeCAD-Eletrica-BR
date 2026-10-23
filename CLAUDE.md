@@ -51,6 +51,9 @@ projeto Python mantido por gente experiente. Refazer custa mais que fazer devaga
 9. **Licença de terceiros.** Só MIT, BSD, LGPL ou CC-BY, com crédito em `THIRD_PARTY.md`.
    STEP de fabricante nunca é redistribuído.
 10. **Teste junto com o código**, no mesmo commit. Teste de cálculo segue `calculo-normativo`.
+11. **Normas e livros são só consulta.** Ficam em `~/FreeCAD-Eletrica-BR/normas` e `.../referencias`,
+   fora do repositório. Nunca copiar, colar trecho, anexar ou publicar (GitHub, issue, fórum,
+   PR). No código e nos docs, citar só número da norma, edição e item.
 
 ## Comandos
 
