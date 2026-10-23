@@ -9,16 +9,19 @@ topo). Atualizado ao fim de cada lote (skill `rotina`, fase 5). O plano de etapa
 **Etapa atual:** 0.1 — núcleo de cálculo, quadro de cargas e memorial.
 **Branch:** `etapa-0.1/previsao-de-cargas`.
 
+**Feito:** `eletrica_br/nucleo/previsao.py` — iluminação mínima e TUG (quantidade e potência) por
+cômodo. 48 testes verdes, 5 casos de referência publicados, 12/12 sabotagens pegas.
+
 ### Por onde continuar
 
-1. Previsão de cargas (iluminação e TUG por cômodo) em `eletrica_br/nucleo/previsao.py`.
-2. Confirmar no texto da NBR 5410:2004 os dois critérios marcados como PENDENTE em `previsao.py`
-   (cômodo ≤ 2,25 m² e regra de mais de 6 tomadas no conjunto de áreas molhadas).
-3. Depois: TUE e cargas específicas, divisão em circuitos, demanda.
+1. TUE e cargas específicas (chuveiro, ar-condicionado, forno) com catálogo editável.
+2. Divisão em circuitos e balanceamento de fases.
+3. Demanda e corrente de projeto.
 
 ### Perguntas para o dono
 
-- Tem acesso ao texto da NBR 5410:2004 para confirmar os itens PENDENTE?
+- Tem o texto da NBR 5410:2004? Serve para conferir as citações dos itens (9.5.2.1, 9.5.2.2.1 e
+  9.5.2.2.2) e a nota sobre o cômodo ≤ 2,25 m² (só muda a posição do ponto, não a quantidade).
 
 ## 🔎 Revisão geral — o que tem de continuar valendo
 
@@ -40,13 +43,29 @@ topo). Atualizado ao fim de cada lote (skill `rotina`, fase 5). O plano de etapa
   FreeCAD, uv · decisão: uv com 3.11, igual ao FreeCAD 1.1 · evidência: pytest ausente no FreeCAD e
   3.14 diferente do alvo · reavaliar quando o FreeCAD mudar de Python.
 
+- 23/10/2026 · **Redução de potência das TUG com mais de 6 pontos não aplicada** · opções: aplicar
+  a redução permitida pela norma ou não · decisão: não aplicar no cálculo por cômodo (sempre do
+  lado da segurança) · evidência: a norma diz "admite-se" · reavaliar quando houver quadro de cargas
+  do conjunto, onde a redução pode virar opção do projetista.
+
 ## Lições
+
+- 23/10/2026 · Sabotagem `<=` → `<` no limite de 6 m² "escapou" porque é equivalente (os dois
+  ramos dão 100 VA em 6 m²). Como evitar: mutação que não muda nenhum resultado não prova nada;
+  troque por uma que mude.
 
 - 23/10/2026 · O Ruff do projeto pegou 5 problemas no primeiro arquivo de teste (caminhos com
   `os.path`, import fora do topo). Como evitar: rodar `uv run ruff check .` antes de dizer pronto;
   o hook já faz isso a cada edição dentro do Claude Code.
 
 ## Sessões
+
+### 23/10/2026 — Etapa 0.1: previsão de cargas
+
+- `previsao.py`: iluminação mínima pela área, quantidade mínima de TUG por tipo de cômodo e
+  potência mínima das TUG, com cada resultado trazendo o passo do cálculo e o item da norma.
+- Conferido: 5 casos de referência (GESEP/UFV e Voltimum), bordas, invariantes, entradas inválidas;
+  48 testes; script `sabotar.py` novo com 12 mutações, todas pegas.
 
 ### 23/10/2026 — Ambiente, GitHub e início da etapa 0.1
 

@@ -45,6 +45,12 @@ consegue refazer cada número com papel e a norma na mão.
 
 Tolerância numérica explícita (`pytest.approx(rel=1e-3)`) e justificada.
 
+Sabotagem automática: liste as mutações em `testes/nucleo/sabotagens_<modulo>.json`
+(`[trecho original, trecho sabotado]`) e rode
+`python3 -I .claude/skills/calculo-normativo/scripts/sabotar.py eletrica_br/nucleo/<modulo>.py testes/nucleo/sabotagens_<modulo>.json`.
+Saída 0 = todas pegas. Mutação que "escapa" ou é defeito do teste, ou é equivalente (não muda
+resultado nenhum): no segundo caso, troque por uma que mude.
+
 ## 4. Antes de dizer "está certo"
 
 Diga **com que caso conhecido** conferiu, **contra que fonte**, **o que o teste não cobre** e

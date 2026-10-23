@@ -1,0 +1,50 @@
+[
+  [
+    "ILUMINACAO_ACRESCIMO_VA = 60",
+    "ILUMINACAO_ACRESCIMO_VA = 50"
+  ],
+  [
+    "ILUMINACAO_PASSO_M2 = Decimal(4)",
+    "ILUMINACAO_PASSO_M2 = Decimal(5)"
+  ],
+  [
+    "to_integral_value(ROUND_FLOOR)",
+    "to_integral_value(ROUND_CEILING)"
+  ],
+  [
+    "ILUMINACAO_AREA_BASE_M2 = Decimal(6)",
+    "ILUMINACAO_AREA_BASE_M2 = Decimal(5)"
+  ],
+  [
+    "PERIMETRO_POR_TUG_AREA_MOLHADA_M = Decimal(\"3.5\")",
+    "PERIMETRO_POR_TUG_AREA_MOLHADA_M = Decimal(4)"
+  ],
+  [
+    "PERIMETRO_POR_TUG_M = Decimal(5)",
+    "PERIMETRO_POR_TUG_M = Decimal(6)"
+  ],
+  [
+    "return int((perimetro / passo_m).to_integral_value(ROUND_CEILING))",
+    "return int((perimetro / passo_m).to_integral_value(ROUND_FLOOR))"
+  ],
+  [
+    "AREA_MAX_OUTRO_COM_UMA_TUG_M2 = Decimal(6)",
+    "AREA_MAX_OUTRO_COM_UMA_TUG_M2 = Decimal(\"2.25\")"
+  ],
+  [
+    "TUG_AREA_MOLHADA_QTD_MAX = 3",
+    "TUG_AREA_MOLHADA_QTD_MAX = 2"
+  ],
+  [
+    "TUG_AREA_MOLHADA_VA = 600",
+    "TUG_AREA_MOLHADA_VA = 500"
+  ],
+  [
+    "if not numero > 0:",
+    "if numero < 0:"
+  ],
+  [
+    "if quantidade < 0:",
+    "if quantidade < -1:"
+  ]
+]
